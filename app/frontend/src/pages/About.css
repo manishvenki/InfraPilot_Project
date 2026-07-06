@@ -1,0 +1,149 @@
+.about-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-main, .about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-desc-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.tech-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.tech-badge-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.tech-badge-icon {
+  color: var(--accent-primary);
+}
+
+.tech-badge-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tech-badge-details span {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tech-badge-details strong {
+  font-size: 13.5px;
+  color: var(--text-main);
+}
+
+/* Tech Stack Details List */
+.tech-stack-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stack-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.stack-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stack-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stack-value {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.stack-value.highlight {
+  color: var(--accent-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* Roadmap List */
+.roadmap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roadmap-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.roadmap-num {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent-primary);
+  background-color: rgba(59, 130, 246, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.roadmap-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roadmap-info strong {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.roadmap-info span {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,84 @@
+.k8s-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.k8s-tabs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tabs Bar */
+.tabs-bar {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.tabs-bar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.tab-btn.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.tab-count {
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 99px;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+}
+
+.tab-btn.active .tab-count {
+  background-color: var(--accent-primary);
+  color: var(--text-main);
+  border-color: var(--accent-primary);
+}
+
+.tab-content-panel {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-info {
+  color: var(--color-info);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
