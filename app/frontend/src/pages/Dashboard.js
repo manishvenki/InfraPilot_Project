@@ -21,6 +21,7 @@ import {
   GitBranch,
   Terminal,
   ShieldCheck,
+  Check,
   AlertOctagon
 } from 'lucide-react';
 import './Dashboard.css';
@@ -30,6 +31,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [actionLoading, setActionLoading] = useState(false);
+  const [successToast, setSuccessToast] = useState('');
   const navigate = useNavigate();
 
   const fetchDashboardData = useCallback(async (showLoading = true) => {
@@ -60,13 +62,16 @@ const Dashboard = () => {
   const handleTriggerDeploy = async () => {
     setActionLoading(true);
     try {
-      await deploymentsService.deployLatest({
-        version: `v1.2.${Math.floor(Math.random() * 10) + 1}`,
+      const res = await deploymentsService.deployLatest({
         branch: 'main',
         triggered_by: 'Dashboard Quick Action'
       });
-      // Refresh data
-      await fetchDashboardData(false);
+      if (res.success) {
+        setSuccessToast(`Deployment completed successfully! Build #${res.build_number} (Version ${res.version}) is now ${res.status}.`);
+        setTimeout(() => setSuccessToast(''), 5000);
+        // Refresh data
+        await fetchDashboardData(false);
+      }
     } catch (err) {
       console.error('Error triggering deployment:', err);
       alert('Failed to trigger deployment.');
@@ -140,7 +145,12 @@ const Dashboard = () => {
           <span>Sync Telemetry</span>
         </button>
       </div>
-
+      {successToast && (
+        <div className="alert-success">
+          <Check size={18} />
+          <span>{successToast}</span>
+        </div>
+      )}
       {/* Metric Cards Row */}
       <div className="metrics-grid">
         <MetricCard 

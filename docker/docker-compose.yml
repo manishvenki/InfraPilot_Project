@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/frontend.Dockerfile
+
+    container_name: infrapilot-frontend
+
+    ports:
+      - "3000:80"
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped
+
+    networks:
+      - infrapilot-network
+
+
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/backend.Dockerfile
+
+    container_name: infrapilot-backend
+
+    ports:
+      - "5000:5000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ../app/database:/app/database
+
+    restart: unless-stopped
+
+    networks:
+      - infrapilot-network
+
+
+networks:
+
+  infrapilot-network:
+    driver: bridge
+    

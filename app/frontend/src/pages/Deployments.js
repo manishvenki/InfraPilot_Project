@@ -11,6 +11,7 @@ import {
   RotateCcw, 
   RefreshCcw, 
   AlertCircle,
+  Check,
   Plus,
   X
 } from 'lucide-react';
@@ -22,6 +23,7 @@ const Deployments = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [actioningId, setActioningId] = useState(null);
   const [error, setError] = useState('');
+  const [successToast, setSuccessToast] = useState('');
 
   // Form State for New Deployment
   const [showDeployForm, setShowDeployForm] = useState(false);
@@ -60,6 +62,8 @@ const Deployments = () => {
       });
       if (res.success) {
         setShowDeployForm(false);
+        setSuccessToast(`Deployment completed successfully! Build #${res.build_number} (Version ${res.version}) is now ${res.status}.`);
+        setTimeout(() => setSuccessToast(''), 5000);
         // Refresh deployment list
         await fetchHistory(false);
       }
@@ -77,6 +81,8 @@ const Deployments = () => {
     try {
       const res = await deploymentsService.rollback(id);
       if (res.success) {
+        setSuccessToast(`Rollback triggered successfully! Build #${res.build_number} (Version ${res.version}) is now ${res.status}.`);
+        setTimeout(() => setSuccessToast(''), 5000);
         await fetchHistory(false);
       }
     } catch (err) {
@@ -92,6 +98,8 @@ const Deployments = () => {
     try {
       const res = await deploymentsService.redeploy(id);
       if (res.success) {
+        setSuccessToast(`Redeployment triggered successfully! Build #${res.build_number} (Version ${res.version}) is now ${res.status}.`);
+        setTimeout(() => setSuccessToast(''), 5000);
         await fetchHistory(false);
       }
     } catch (err) {
@@ -183,6 +191,13 @@ const Deployments = () => {
         <div className="alert-error">
           <AlertCircle size={18} />
           <span>{error}</span>
+        </div>
+      )}
+
+      {successToast && (
+        <div className="alert-success">
+          <Check size={18} />
+          <span>{successToast}</span>
         </div>
       )}
 

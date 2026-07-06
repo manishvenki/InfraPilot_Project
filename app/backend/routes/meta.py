@@ -6,7 +6,7 @@ meta_bp = Blueprint('meta', __name__)
 def get_version():
     """Retrieve version metadata."""
     return jsonify({
-        "version": "v1.2.0",
+        "version": "v0.3.0",
         "build_number": "#1024",
         "api_status": "Healthy",
         "environment": "Production"
@@ -17,7 +17,7 @@ def get_about():
     """Retrieve system descriptions and engineering stack details."""
     return jsonify({
         "project_name": "InfraPilot",
-        "version": "v1.2.0",
+        "version": "v0.3.0",
         "architecture": "Modular Full-Stack Architecture",
         "technology_stack": {
             "frontend": "React (Functional Components, Hooks, Router, Axios)",
@@ -35,7 +35,7 @@ def get_settings():
     return jsonify({
         "theme": "Dark Theme (Grafana Inspired)",
         "environment": "Production",
-        "version": "v1.2.0",
+        "version": "v0.3.0",
         "log_level": "INFO",
         "auto_refresh_interval_ms": 5000,
         "features": {
