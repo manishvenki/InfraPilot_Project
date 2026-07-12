@@ -1,0 +1,28 @@
+# Node
+**/node_modules
+**/npm-debug.log
+
+# React build
+**/build
+
+# Python cache & venv
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/venv/
+**/.env
+
+# Git
+.git
+.gitignore
+
+# VS Code / IDE
+.vscode
+.idea
+
+# Logs
+**/*.log
+
+# OS
+.DS_Store
+Thumbs.db
