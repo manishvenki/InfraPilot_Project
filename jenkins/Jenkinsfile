@@ -9,17 +9,43 @@ pipeline {
             }
         }
 
-        stage('Verify') {
+        stage('Verify Environment') {
             steps {
-                echo 'InfraPilot repository cloned successfully.'
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'docker --version'
+                sh 'docker ps'
             }
         }
 
+        stage('Build Frontend Image') {
+            steps {
+                sh 'docker build -t infrapilot-frontend:latest -f docker/frontend.Dockerfile .'
+            }
+        }
+
+        stage('Build Backend Image') {
+            steps {
+                sh 'docker build -t infrapilot-backend:latest -f docker/backend.Dockerfile .'
+            }
+        }
+
+        stage('Build Nginx Image') {
+            steps {
+                sh 'docker build -t infrapilot-nginx:latest nginx'
+            }
+        }
+
+        stage('Verify Images') {
+            steps {
+                sh 'docker images'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully.'
+            echo 'InfraPilot Docker images built successfully.'
         }
 
         failure {

@@ -58,7 +58,8 @@ services:
       - infrapilot-network
 
   jenkins:
-    image: jenkins/jenkins:lts-jdk21
+    build:
+      context: ../jenkins
 
     container_name: infrapilot-jenkins
 
@@ -80,11 +81,8 @@ services:
       - infrapilot-network
 
 networks:
-
   infrapilot-network:
     driver: bridge
 
 volumes:
-
   jenkins_home:
-
