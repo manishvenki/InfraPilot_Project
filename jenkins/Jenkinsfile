@@ -41,15 +41,35 @@ pipeline {
                 sh 'docker images'
             }
         }
+
+        stage('Deploy Containers') {
+            steps {
+                dir('docker') {
+                    sh 'docker compose up -d --build'
+                }
+            }
+
+            stage('Health Check') {
+                steps {
+                    sh 'sleep 10'
+                    sh 'curl http://host.docker.internal/health'
+                }
+            }
+            
+        }
     }
 
     post {
-        success {
-            echo 'InfraPilot Docker images built successfully.'
-        }
 
-        failure {
-            echo 'Pipeline failed.'
-        }
+    success {
+        echo '🚀 InfraPilot deployed successfully!'
+    }
+
+    failure {
+        echo '❌ Deployment failed.'
+    }
+
+    always {
+        sh 'docker ps'
     }
 }
