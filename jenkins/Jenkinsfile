@@ -48,29 +48,28 @@ pipeline {
                     sh 'docker compose up -d --build'
                 }
             }
+        }
 
-            stage('Health Check') {
-                steps {
-                    sh 'sleep 10'
-                    sh 'curl http://host.docker.internal/health'
-                }
+        stage('Health Check') {
+            steps {
+                sh 'sleep 10'
+                sh 'curl http://host.docker.internal/health'
             }
-            
         }
     }
 
     post {
 
-    success {
-        echo '🚀 InfraPilot deployed successfully!'
-    }
+        success {
+            echo '🚀 InfraPilot deployed successfully!'
+        }
 
-    failure {
-        echo '❌ Deployment failed.'
-    }
+        failure {
+            echo '❌ Deployment failed.'
+        }
 
-    always {
-        sh 'docker ps'
-    }
+        always {
+            sh 'docker ps'
+        }
     }
 }
