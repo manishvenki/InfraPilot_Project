@@ -45,7 +45,13 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 dir('docker') {
-                    sh 'docker compose up -d --build'
+                    sh '''
+                        if docker compose version >/dev/null 2>&1; then
+                            docker compose up -d --build
+                        else
+                            docker-compose up -d --build
+                        fi
+                    '''
                 }
             }
         }
