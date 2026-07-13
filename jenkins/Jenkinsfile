@@ -53,9 +53,12 @@ pipeline {
                             echo "DATABASE_NAME=infrapilot.db" >> .env
                             echo "API_URL=http://backend:5000" >> .env
                         fi
+
                         if docker compose version >/dev/null 2>&1; then
+                            docker compose down
                             docker compose up -d --build
                         else
+                            docker-compose down
                             docker-compose up -d --build
                         fi
                     '''
@@ -65,8 +68,10 @@ pipeline {
 
         stage('Health Check') {
             steps {
-                sh 'sleep 10'
-                sh 'curl http://host.docker.internal/health'
+                sh '''
+                    sleep 10
+                    curl --fail http://localhost/health
+                '''
             }
         }
     }
