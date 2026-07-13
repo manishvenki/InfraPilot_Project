@@ -70,7 +70,7 @@ pipeline {
             steps {
                 sh '''
                     sleep 10
-                    curl --fail http://localhost/health
+                    curl --fail http://infrapilot-nginx/health
                 '''
             }
         }
