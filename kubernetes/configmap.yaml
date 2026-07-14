@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: infrapilot-config
+  namespace: infrapilot
+
+data:
+  APP_NAME: "InfraPilot"
+  APP_ENV: "production"
+  FLASK_ENV: "production"
