@@ -146,7 +146,7 @@ Application successfully deployed inside the Kubernetes cluster.
 
 Running application pod inside the InfraPilot namespace.
 
-![Kubernetes Pod](screenshots/kubernetes-pod.png)
+![Kubernetes Pod](screenshots/kubernetes-namespace.png)
 
 ---
 
@@ -229,19 +229,3 @@ This project demonstrates practical experience with:
 
 ---
 
-# 👨‍💻 Author
-
-**Manish V**
-
-**M.Sc. Computer Science**
-
-Aspiring DevOps & Cloud Engineer
-
-- GitHub: https://github.com/manishvenki
-- LinkedIn: *(Add your LinkedIn profile here)*
-
----
-
-## ⭐ Support
-
-If you found this project helpful or interesting, consider giving it a **Star ⭐** on GitHub.
