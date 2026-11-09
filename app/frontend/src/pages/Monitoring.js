@@ -12,8 +12,7 @@ import {
   TrendingUp, 
   Wifi, 
   Clock, 
-  AlertTriangle,
-  Server
+  AlertTriangle
 } from 'lucide-react';
 import './Monitoring.css';
 

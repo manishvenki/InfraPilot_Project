@@ -3,7 +3,7 @@ import { metaService } from '../services/api';
 import DashboardCard from '../components/DashboardCard';
 import InfoCard from '../components/InfoCard';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Server, Layers, Cpu, Terminal, GitBranch, CpuIcon } from 'lucide-react';
+import { Server, Layers, Cpu, Terminal, CpuIcon } from 'lucide-react';
 import './About.css';
 
 const About = () => {

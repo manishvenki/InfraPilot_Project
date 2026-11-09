@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, MenuOpen, Bell, Shield, Cloud, Server } from 'lucide-react';
+import { Menu, Bell, Shield, Cloud, Server } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = ({ isCollapsed, toggleSidebar }) => {

@@ -4,12 +4,9 @@ import DashboardCard from '../components/DashboardCard';
 import InfoCard from '../components/InfoCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { 
-  Settings as SettingsIcon, 
-  Layers, 
   Sun, 
   Moon, 
   Terminal, 
-  RefreshCw,
   Sliders,
   Check
 } from 'lucide-react';

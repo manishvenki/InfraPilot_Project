@@ -10,7 +10,6 @@ import {
   RotateCw, 
   Search, 
   X, 
-  FileText,
   AlertCircle
 } from 'lucide-react';
 import './Docker.css';

@@ -9,11 +9,8 @@ import {
   RefreshCw, 
   Layers, 
   Cpu, 
-  Network, 
   ShieldCheck, 
-  HardDrive, 
   Grid,
-  FileText,
   AlertCircle
 } from 'lucide-react';
 import './Kubernetes.css';
